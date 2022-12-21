@@ -1,0 +1,24 @@
+<span>Julio</span>
+<div class="row">
+    <div class="col-3">
+        <div class="card" style="width: 18rem;" *ngIf="userGitHub">
+            <img [src]="userGitHub.avatar_url" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{userGitHub.name}}</h5>
+              <p class="card-text" *ngIf="userGitHub.bio != null">{{userGitHub.bio}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngIf="userGitHub.location != null">{{userGitHub.location}}</li>
+              <li class="list-group-item">Followers {{userGitHub.followers}} </li>
+              <li class="list-group-item">Public Repos: {{userGitHub.public_repos}} </li>
+            </ul>
+            <div class="card-body">
+              <a *ngIf="userGitHub.blog != ''" [href]="userGitHub.blog" class="card-link">Blog</a>
+              <a [href]="userGitHub.html_url" class="card-link" target="_blank">GitHub</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-9">
+        <pre><code>{{userGitHub | json}}</code></pre>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row" *ngIf="listRepos.length > 0; else noData;">
+    <div class="col-3" *ngFor="let repo of listRepos">
+        <div class="card mb-2">
+            <div class="card-header overflow-clip"> {{repo.full_name}} </div>
+            <div class="card-body">
+                <h5 class="card-title overflow-clip"> {{repo.name}} </h5>
+                <p class="card-text overflow-clip">{{repo.description == null ? '...' : repo.description}}</p>
+                <a [href]="repo.html_url" target="_blank" class="btn btn-primary">Ir a codigo</a>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noData>
+    <div class="alert alert-warning" role="alert">
+        El usuario no tiene repos creados.
+    </div>
+</ng-template>
